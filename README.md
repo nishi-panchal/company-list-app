@@ -1,3 +1,13 @@
+## Goal
+
+Create a website which displays a listing of companies (object)
+
+- Each item would have a logo (image), a title (text), and a description (text), and website link (url)
+- User would be able to create, edit, or delete an item
+- 
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
