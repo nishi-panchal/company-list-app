@@ -17,8 +17,11 @@ const ImageGrid = ({ getBookId }) => {
 
   return (
     <>
-
+ <Button variant="dark edit" href="/companies">
+          Dashboard
+        </Button>
       <div className="img-grid">
+      
           {books.map((doc, index) => {
             return (
                 <div className="img-wrap" key={doc.id}>
@@ -29,6 +32,7 @@ const ImageGrid = ({ getBookId }) => {
                   />
               
                 </div>
+                
             );
           })}
       </div>
