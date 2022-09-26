@@ -69,6 +69,27 @@ a {
   }
 }
 
-.img-grid {
+.img-grid{
+  display: grid;
+  grid-template-columns: 250px 250px 250px ;
+  justify-content: space-evenly;
+  gap: 40px;
+  background-color: #2b2b2b;
+  justify-content: center;
+
+}
+.img-wrap{
+  overflow: hidden;
+  padding: 10% 0;
+  text-align: center;
   background-color: #61dafb;
+}
+
+.img-wrap img{
+  min-width: 80%;
+  min-height: 80%;
+}
+
+.h1 {
+  font-size: 36px;
 }

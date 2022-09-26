@@ -15,26 +15,23 @@ const ImageGrid = ({ getBookId }) => {
     setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
-  const deleteHandler = async (id) => {
-    await CompanyDataService.deleteBook(id);
-    getBooks();
-  };
   return (
     <>
 
-        
+      <div className="img-grid">
           {books.map((doc, index) => {
             return (
-              <div className="img-grid" key={doc.id}>
-             
-                <img 
-                  src={doc.logo}
-                  alt=""
-                />
-             
-              </div>
+                <div className="img-wrap" key={doc.id}>
+                  <h1>{doc.title}</h1>
+                  <img 
+                    src={doc.logo}
+                    alt=""
+                  />
+              
+                </div>
             );
           })}
+      </div>
     </>
   );
 };
