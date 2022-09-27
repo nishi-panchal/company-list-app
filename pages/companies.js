@@ -1,39 +1,12 @@
-import { useState } from "react";
-import { Container, Navbar, Row, Col } from "react-bootstrap";
-import AddCompany from "../components/AddCompany";
-import CompaniesList from "../components/CompaniesList";
+import React from 'react'; 
+import ImageGrid from "../components/ImageGrid";
 
-function Companies() {
-  const [bookId, setBookId] = useState("");
-
-  const getBookIdHandler = (id) => {
-    console.log("The ID of document to be edited: ", id);
-    setBookId(id);
-  };
+function grid() {
   return (
-    <>
-      <Navbar bg="dark" variant="dark" className="header">
-        <Container>
-          <Navbar.Brand href="#home">Dashboard - Companies List</Navbar.Brand>
-        </Container>
-      </Navbar>
-
-      <Container style={{ width: "400px" }}>
-        <Row>
-          <Col>
-            <AddCompany id={bookId} setBookId={setBookId} />
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row>
-          <Col>
-            <CompaniesList getBookId={getBookIdHandler} />
-          </Col>
-        </Row>
-      </Container>
-    </>
-  );
+    <div>
+        <ImageGrid/>
+    </div>
+  )
 }
 
-export default Companies;
+export default grid;

@@ -74,22 +74,34 @@ a {
   grid-template-columns: 250px 250px 250px ;
   justify-content: space-evenly;
   gap: 40px;
-  background-color: #2b2b2b;
   justify-content: center;
-
+  margin-top: 60px;
+  margin-bottom: 120px;
 }
+
+.img-grid :hover {
+  background-color: darkslateblue;
+  transition: ease-in;
+  color: whitesmoke;
+}
+
 .img-wrap{
   overflow: hidden;
   padding: 10% 0;
   text-align: center;
-  background-color: #61dafb;
+  border-radius: 10px;
+
 }
 
 .img-wrap img{
   min-width: 80%;
   min-height: 80%;
+  padding: 1.5rem;
+  border-radius: 10px;
+
 }
 
 .h1 {
   font-size: 36px;
 }
+

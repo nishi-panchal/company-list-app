@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Button } from "react-bootstrap";
+
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -24,17 +25,18 @@ const Home: NextPage = () => {
         </h1>
 
         <p className={styles.description}>
-          Explore companies in Blockchain and NFT
+          Explore companies in Blockchain and NFT. Click on Companies to view all the companies in database. Click on Dashboard to create, update or delete the companies.
         </p>
-        <button className='hero__button'>
-          <Link href="/companies">Hello</Link>
-        </button>
-        
-         
+        <div className={styles.buttongroup}>
+          <Button variant="dark" className="btn btn-primary btn-lg"href="/companies">
+              Companies
+          </Button>
+          <p></p>
+          <Button variant="light"  className="btn btn-secondary btn-lg" href="/companies">
+              Dashboard
+          </Button>
+        </div>
       </main>
-
-    
-      
     </div>
   )
 }

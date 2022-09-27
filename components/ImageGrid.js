@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
-import { Table, Button } from "react-bootstrap";
+import { Button, Navbar, Container} from "react-bootstrap";
 import CompanyDataService from "../services/companies.services";
 
 const ImageGrid = ({ getBookId }) => {
@@ -17,12 +17,17 @@ const ImageGrid = ({ getBookId }) => {
 
   return (
     <>
- <Button variant="dark edit" href="/companies">
-          Dashboard
+    <Navbar bg="dark" variant="dark" className="header">
+        <Container>
+          <Navbar.Brand>Companies</Navbar.Brand>
+          <Button variant="light" href="/dashboard">
+            Dashboard
         </Button>
+        </Container>
+      </Navbar>
       <div className="img-grid">
       
-          {books.map((doc, index) => {
+          {books.map((doc) => {
             return (
                 <div className="img-wrap" key={doc.id}>
                   <h1>{doc.title}</h1>
@@ -30,6 +35,7 @@ const ImageGrid = ({ getBookId }) => {
                     src={doc.logo}
                     alt=""
                   />
+                  <p>{doc.description}</p>
               
                 </div>
                 

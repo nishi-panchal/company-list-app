@@ -6,6 +6,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image: url(  https://images.unsplash.com/photo-1528499908559-b8e4e8b89bda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80) ;
+  background-size: cover;
 }
 
 .main {
@@ -15,6 +17,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .footer {
@@ -45,14 +49,19 @@
 }
 
 .title {
+  color: darkslateblue;
+  text-shadow: 2px 5px #eaeaea;
   margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  line-height: 1.5;
+  font-size: 7rem;
+  font-weight: 800;
 }
 
-.title,
 .description {
+  color: #2b2b2b;
   text-align: center;
+  margin: 4rem;
+  padding: 0 8rem;
 }
 
 .description {
@@ -118,4 +127,10 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.buttongroup {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
 }
