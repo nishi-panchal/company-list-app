@@ -7,7 +7,8 @@ Create a website which displays a listing of companies (object)
 - /database is where you can perform the CRUD operations - add, edit or delete data items
 - Each item in the database would have a logo (image), a title (text), and a description (text)
 
-
+## Demo
+https://company-list-app.vercel.app/
 
 ## Tech Stack
 Firebase Firestore database, AWS S3, React JS, Next JS, Node JS, HTML/CSS, Typescript, Vercel
