@@ -10,7 +10,7 @@ Create a website which displays a listing of companies (object)
 
 
 ## Tech Stack
-Firebase Firestore database, AWS S3, React JS, Next JS, HTML/CSS, Vercel
+Firebase Firestore database, AWS S3, React JS, Next JS, Node JS, HTML/CSS, Typescript, Vercel
 
 ## Libraries
 React Bootstrap
