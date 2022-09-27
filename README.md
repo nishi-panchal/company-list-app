@@ -2,9 +2,18 @@
 
 Create a website which displays a listing of companies (object)
 
-- Each item would have a logo (image), a title (text), and a description (text), and website link (url)
-- User would be able to create, edit, or delete an item
-- 
+- Homepage from where both /companies and /dashboard can be accessed
+- /companies page has a grid list of all companies in the database
+- /database is where you can perform the CRUD operations - add, edit or delete data items
+- Each item in the database would have a logo (image), a title (text), and a description (text)
+
+
+
+## Tech Stack
+Firebase Firestore database, AWS S3, React JS, Next JS, HTML/CSS, Vercel
+
+## Libraries
+React Bootstrap
 
 
 
