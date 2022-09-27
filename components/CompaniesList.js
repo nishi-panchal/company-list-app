@@ -1,27 +1,28 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import CompanyDataService from "../services/companies.services";
 
-const CompaniesList = ({ getBookId }) => {
-  const [books, setBooks] = useState([]);
+const CompaniesList = ({ getItemId }) => {
+  const [items, setItems] = useState([]);
   useEffect(() => {
-    getBooks();
+    getItems();
   }, []);
 
-  const getBooks = async () => {
-    const data = await CompanyDataService.getAllBooks();
+  const getItems = async () => {
+    const data = await CompanyDataService.getAllItems();
     console.log(data.docs);
-    setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setItems(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
   const deleteHandler = async (id) => {
-    await CompanyDataService.deleteBook(id);
-    getBooks();
+    await CompanyDataService.deleteItem(id);
+    getItems();
   };
   return (
     <>
       <div className="mb-2">
-        <Button variant="dark edit" onClick={getBooks}>
+        <Button variant="dark edit" onClick={getItems}>
           Refresh List
         </Button>
       </div>
@@ -31,25 +32,25 @@ const CompaniesList = ({ getBookId }) => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Book Title</th>
-            <th>Book Author</th>
-            <th>Status</th>
+            <th>Company Name</th>
+            <th>Description</th>
+            <th>Logo</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {books.map((doc, index) => {
+          {items.map((doc, index) => {
             return (
               <tr key={doc.id}>
                 <td>{index + 1}</td>
                 <td>{doc.title}</td>
-                <td>{doc.author}</td>
-                <td>{doc.status}</td>
+                <td class="col-md-3">{doc.description}</td>
+                <td><img width="100px" src={doc.logo} alt={doc.title}/></td>
                 <td>
                   <Button
                     variant="secondary"
                     className="edit"
-                    onClick={(e) => getBookId(doc.id)}
+                    onClick={(e) => getItemId(doc.id)}
                   >
                     Edit
                   </Button>

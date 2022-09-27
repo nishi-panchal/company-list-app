@@ -3,16 +3,16 @@ import React, { useEffect, useState } from "react";
 import { Button, Navbar, Container} from "react-bootstrap";
 import CompanyDataService from "../services/companies.services";
 
-const ImageGrid = ({ getBookId }) => {
-  const [books, setBooks] = useState([]);
+const ImageGrid = ({ getItemId }) => {
+  const [items, setItems] = useState([]);
   useEffect(() => {
-    getBooks();
+    getItems();
   }, []);
 
-  const getBooks = async () => {
-    const data = await CompanyDataService.getAllBooks();
+  const getItems = async () => {
+    const data = await CompanyDataService.getAllItems();
     console.log(data.docs);
-    setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setItems(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
   return (
@@ -27,7 +27,7 @@ const ImageGrid = ({ getBookId }) => {
       </Navbar>
       <div className="img-grid">
       
-          {books.map((doc) => {
+          {items.map((doc) => {
             return (
                 <div className="img-wrap" key={doc.id}>
                   <h1>{doc.title}</h1>
@@ -35,7 +35,7 @@ const ImageGrid = ({ getBookId }) => {
                     src={doc.logo}
                     alt=""
                   />
-                  <p>{doc.description}</p>
+                  <p className="card-description">{doc.description}</p>
               
                 </div>
                 

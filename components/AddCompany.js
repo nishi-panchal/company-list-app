@@ -1,53 +1,53 @@
 import React, { useState, useEffect } from "react";
-import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
+import { Form, Alert, InputGroup, Button } from "react-bootstrap";
 import CompanyDataService from "../services/companies.services";
 
-const AddCompany = ({ id, setBookId }) => {
+const AddCompany = ({ id, setItemId }) => {
   const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [status, setStatus] = useState("Available");
+  const [description, setDescription] = useState("");
+  const [logo, setLogo] = useState("");
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, msg: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-    if (title === "" || author === "") {
+    if (title === "" || description === "") {
       setMessage({ error: true, msg: "All fields are mandatory!" });
       return;
     }
-    const newBook = {
+    const newItem = {
       title,
-      author,
-      status,
+      description,
+      logo,
     };
-    console.log(newBook);
+    console.log(newItem);
 
     try {
       if (id !== undefined && id !== "") {
-        await CompanyDataService.updateBook(id, newBook);
-        setBookId("");
+        await CompanyDataService.updateItem(id, newItem);
+        setItemId("");
         setMessage({ error: false, msg: "Updated successfully!" });
       } else {
-        await CompanyDataService.addBooks(newBook);
-        setMessage({ error: false, msg: "New Book added successfully!" });
+        await CompanyDataService.addItems(newItem);
+        setMessage({ error: false, msg: "New company added successfully!" });
       }
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
 
     setTitle("");
-    setAuthor("");
+    setDescription("");
   };
 
   const editHandler = async () => {
     setMessage("");
     try {
-      const docSnap = await CompanyDataService.getBook(id);
+      const docSnap = await CompanyDataService.getItem(id);
       console.log("the record is :", docSnap.data());
       setTitle(docSnap.data().title);
-      setAuthor(docSnap.data().author);
-      setStatus(docSnap.data().status);
+      setDescription(docSnap.data().description);
+      setLogo(docSnap.data().logo);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
@@ -74,51 +74,41 @@ const AddCompany = ({ id, setBookId }) => {
         )}
 
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBookTitle">
+          <Form.Group className="mb-3" controlId="formTitle">
             <InputGroup>
-              <InputGroup.Text id="formBookTitle">B</InputGroup.Text>
+              <InputGroup.Text id="formTitle">🏡</InputGroup.Text>
               <Form.Control
                 type="text"
-                placeholder="Book Title"
+                placeholder="Company Name"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </InputGroup>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBookAuthor">
+          <Form.Group className="mb-3" controlId="formDescription">
             <InputGroup>
-              <InputGroup.Text id="formBookAuthor">A</InputGroup.Text>
+              <InputGroup.Text id="formDescription">📜</InputGroup.Text>
               <Form.Control
                 type="text"
-                placeholder="Book Author"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </InputGroup>
           </Form.Group>
-          <ButtonGroup aria-label="Basic example" className="mb-3">
-            <Button
-              disabled={flag}
-              variant="success"
-              onClick={(e) => {
-                setStatus("Available");
-                setFlag(true);
-              }}
-            >
-              Available
-            </Button>
-            <Button
-              variant="danger"
-              disabled={!flag}
-              onClick={(e) => {
-                setStatus("Not Available");
-                setFlag(false);
-              }}
-            >
-              Not Available
-            </Button>
-          </ButtonGroup>
+          <Form.Group className="mb-3" controlId="formLogo">
+            <InputGroup>
+              <InputGroup.Text id="formLogo">🎨</InputGroup.Text>
+              <Form.Control
+                type="text"
+                placeholder="Logo Image URL"
+                value={logo}
+                onChange={(e) => setLogo(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+         
           <div className="d-grid gap-2">
             <Button variant="primary" type="Submit">
               Add/ Update

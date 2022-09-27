@@ -10,29 +10,29 @@ import {
   doc,
 } from "firebase/firestore";
 
-const bookCollectionRef = collection(db, "company-list");
+const itemCollectionRef = collection(db, "company-list");
 class CompanyDataService {
-  addBooks = (newBook) => {
-    return addDoc(bookCollectionRef, newBook);
+  addItems = (newItem) => {
+    return addDoc(itemCollectionRef, newItem);
   };
 
-  updateBook = (id, updatedBook) => {
-    const bookDoc = doc(db, "company-list", id); //check whether data item exists
-    return updateDoc(bookDoc, updatedBook);
+  updateItem = (id, updatedItem) => {
+    const itemDoc = doc(db, "company-list", id); //check whether data item exists
+    return updateDoc(itemDoc, updatedItem);
   };
 
-  deleteBook = (id) => {
-    const bookDoc = doc(db, "company-list", id); //check whether data item exists
-    return deleteDoc(bookDoc);
+  deleteItem = (id) => {
+    const itemDoc = doc(db, "company-list", id); //check whether data item exists
+    return deleteDoc(itemDoc);
   };
 
-  getAllBooks = () => {
-    return getDocs(bookCollectionRef);
+  getAllItems = () => {
+    return getDocs(itemCollectionRef);
   };
 
-  getBook = (id) => {
-    const bookDoc = doc(db, "company-list", id);
-    return getDoc(bookDoc);
+  getItem = (id) => {
+    const itemDoc = doc(db, "company-list", id);
+    return getDoc(itemDoc);
   };
 }
 
